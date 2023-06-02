@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulaire Produit</title>
+  <link rel="stylesheet" href="formul.css">
+</head>
+<body>
+  <h2>Veuillez renseigner</h2>
+
+  <div id="formulaire">
+    <label for="nomProduit">Nom du produit:</label><br>
+    <input type="text" id="nomProduit" name="nomProduit"><br><br>
+
+    <label for="typeProduit">Type du produit:</label><br>
+    <input type="text" id="typeProduit" name="typeProduit"><br><br>
+
+    <label for="prixProduit">Prix du produit:</label><br>
+    <input type="number" id="prixProduit" name="prixProduit"><br><br>
+
+    <label for="Quantite">Quantité:</label><br>
+    <input type="number" id="Quantite" name="Quantite"><br><br>
+
+    <button id="bouton">Ajouter</button>
+  </div>
+
+  <script>
+    // Récupérer les éléments du formulaire
+    var formulaire = document.getElementById("formulaire");
+    var nomProduitInput = document.getElementById("nomProduit");
+    var typeProduitInput = document.getElementById("typeProduit");
+    var prixProduitInput = document.getElementById("prixProduit");
+    var quantiteInput = document.getElementById("Quantite");
+    var bouton = document.getElementById("bouton");
+
+    // Ajouter un écouteur d'événement pour le clic sur le bouton
+    bouton.addEventListener("click", function(event) {
+      event.preventDefault(); // Empêcher le rechargement de la page
+
+      // Récupérer les valeurs saisies
+
+      var nomProduit = nomProduitInput.value;
+      var typeProduit = typeProduitInput.value;
+      var prixProduit = prixProduitInput.value;
+      var quantite = quantiteInput.value;
+
+      // Afficher les valeurs dans la console
+    
+    localStorage.setItem("nom du Produit", nomProduit);
+    localStorage.setItem("type de Produit", typeProduit);
+    localStorage.setItem("prix du Produit", prixProduit);
+    localStorage.setItem("quantite", quantite);
+
+
+      // Réinitialiser les valeurs du formulaire
+      nomProduitInput.value = "";
+      typeProduitInput.value = "";
+      prixProduitInput.value = "";
+      quantiteInput.value = "";
+
+
+      var nouveauProduit = {
+    nom: nomProduit,
+    type: typeProduit,
+    prix: prixProduit,
+    quantite: quantite
+  };
+
+  // Ajouter le nouveau produit au tableau
+  produits.push(nouveauProduit);
+
+    });
+  </script>
